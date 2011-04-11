@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/swixml~svn/!svn/ver/2/trunk/samples/locale
+END
+swix_en.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/swixml~svn/!svn/ver/2/trunk/samples/locale/swix_en.properties
+END
+swix_en_mac.properties
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/swixml~svn/!svn/ver/2/trunk/samples/locale/swix_en_mac.properties
+END
+swix_de.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/swixml~svn/!svn/ver/2/trunk/samples/locale/swix_de.properties
+END

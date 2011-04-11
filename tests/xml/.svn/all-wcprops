@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/swixml~svn/!svn/ver/24/trunk/tests/xml
+END
+parsethis.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/swixml~svn/!svn/ver/5/trunk/tests/xml/parsethis.xml
+END
+converter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/swixml~svn/!svn/ver/12/trunk/tests/xml/converter.xml
+END
+local.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/swixml~svn/!svn/ver/3/trunk/tests/xml/local.xml
+END
+id.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/swixml~svn/!svn/ver/12/trunk/tests/xml/id.xml
+END
+action.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/swixml~svn/!svn/ver/4/trunk/tests/xml/action.xml
+END
+layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/swixml~svn/!svn/ver/24/trunk/tests/xml/layout.xml
+END
+mappings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/swixml~svn/!svn/ver/12/trunk/tests/xml/mappings.xml
+END
+dialog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/swixml~svn/!svn/ver/2/trunk/tests/xml/dialog.xml
+END

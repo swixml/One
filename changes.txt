@@ -1,0 +1,311 @@
+
+* * * * * * 1.6 (tag: swixml_161) from 1.5 (tag: swixml_161) * * * * *
+Swixml 1.6:
+Update buildscripts
+Added TagDocs source, generating the tag documentation in HTML via introspection 
+Update 3rd party libs
+
+Prepare for move to GITHUB
+
+* * * * * * 1.6 (tag: swixml_151) from 1.5 (tag: swixml_146) * * * * *
+Swixml 1.6  beta 1:
+PrimitiveConverter anow also implement the ScrollPaneConstants interface,
+making its constants available to the Swixml descriptor.
+JGoodies Formlayout support thanks to Karl Tauber of JFormDesigner.
+Updated 3rd party libraries: Qaqua, Substance, ant, forms, j2h
+Updated samples and Javadoc.
+Updated Parser code.
+
+* * * * * * 1.5 (tag: swixml_149) from 1.5 (tag: swixml_146) * * * * *
+Added Swixml XML-Schema Generator
+
+Fixed BorderConverter to accept a more complex declaration of a
+TitledBorder, which can now be declared like so:
+border="TitledBorder(TitledBorder, myTitle, TitledBorder.CENTER,
+TitledBorder.BELOW_BOTTOM, VERDANA-BOLD-18, blue)"
+Added TitledBorder's constants to the PrimitiveConverter
+
+Fixed class return type in the Font Converter.
+Supported plaf attributes on Macs.
+Cleaned up ConverterLibrary.
+Removed <i>final</a> from SwingEngine's static DEBUG member
+
+Added CustomTag sample which uses the JCalendar, Qaqua, and Substance
+3rd party jars, all added to the lib folder.
+
+Wrapping client methods into AbstactActions:
+If a client's method should be used as an Action but the client is not
+intersted in the ActionEvent that caused it, there may not a reason to
+imlement an Action but rather use a simple operation like:
+public void myOperation() { .. }
+If a client's method name is found in the action attribute's value and
+an Action with this name doesn't exist, then the method is wrapped
+into an AbstactAction and mapped.
+ 
+Wrap the JScrollPane to override the setBackground method. Setting the
+background of a scrollpane can be accomplished by setting the
+background color of the viewport, via
+scrollPane.getViewport().setBackground().
+
+Localizer class is now localizing comma sep. string lists, which now
+for instance allows the TabbedPane's titles attribute to be used
+together with localization.
+
+* * * * * * 1.5 (tag: swixml_146) from 1.5 (tag: swixml_145) * * * * *
+Switched VCS from CVS to SVN
+Replaced 3rd party libs with newer version: ui.jar, ant.jar, junit.jar
+ 
+* * * * * * 1.5 (tag: swixml_145) from 1.4 (tag: swixml_144) * * * * *
+Fixed AccessControlException thrown when run in applet or otherwise
+restricted environment.
+
+* * * * * * 1.4 (tag: swixml_141) from 1.3 (tag: swixml_144) * * * * *
+Parser now adds a JMenuBar into its parent-container,
+in case the parent doesn't provide a setJMenuBar(..) method.
+Automatic field mapping now works with private field too.
+Transient fields however, are not mapped.
+ButtonGroups with an id attribute are now mapped like Components.
+Added lib/junit.jar into build.
+Replaced lib/jdom.jar with Jason Hunter's 1.0 release.
+
+* * * * * * 1.3 (tag: swixml_139) from 1.2 (tag: swixml_141) * * * * *
+Actions instantiated through initclass are now working on MacOS.
+
+The actionPerformed of all MacOS-actions does not get a null reference
+as ActionEvent anymore. Instead the original (ApplicationEvent)-source
+is used. Further, the ActionEvent gets a (somewhat) useful
+actionCommand String specifying the called function, e.g. for the
+Action mapped to MacOS-File-Open-Command the actionCommand
+Parser.ATTR_MACOS_OPENFILE.
+
+Thanks to Volker Bublitz for help and testing environment.
+
+* * * * * * 1.2 (tag: swixml_138) from 1.1 (tag: swixml_139) * * * * *
+Changed Mac OS X detection like recommended in Apple's Technical Note TN2110
+
+To avoid the problem with BufferedReader switching to the default
+Platform-Encoding,
+BufferedReaders are not used anymore when reading XML descriptors.
+i.e. DataInputStreams are implicitly localized when wrapped into an appropriate
+BufferedReader.
+
+Deprecated SwingEngine Ctor: SwingEngine(ClassLoader cl, final String resource),
+which is not useful but confusing, i.e. a ResourceBundle can only be set after
+the XML descriptor has been rendered, when changing the CL however, one often
+wants to provide a new rb as well.
+
+Fixed the Localizer class' setResourceBundle() method to work also in a remoting
+environment.
+
+* * * * * * 1.1 (tag: swixml_138) from 1.0.1 (tag: swixml_137) * * * * *
+Added example HelloMac, showing some of the Mac OS X specifics
+Updated TagDocumentation/Custom Swixml Attributes with MAC_OS examples
+Updated TagDocumentation to link to Java 2 Platform Std Ed. v1.4.2
+Updated lib/jdom.jar library to BETA-10 RC1.
+Updated lib/ant.jar to ant 1.6.1
+Updated lib/ui.jar to apple jre 1.4.2
+Updated build.xml file to work on the MAC
+Updated license file.
+
+Added guessSetter method to Factory Interface and implementations.
+Added guessSetter method to TagLibrary class.
+The new methods are used during parsing to determine which method to used to
+set a property and case now doesn't matter anymore for attribute names.
+I.e. a JLabels' MaximumSize property could be set with a label tag like this:
+<label MaximumSize="123"/>. However, <label Maximumsize="123"/> didn't work before.
+
+BUG FIXES
+---------
+Fixed logical error in method SwingEngine.setActionListener, which prevented 
+ActionListeners being assigned to MenuItems.
+
+* * * * * * 1.0.1 (tag: swixml_136) from 1.0 (tag: swixml_135) * * * * *
+Added ClassLoader property to the SwingEngine to allow remoting.
+The classloader can be set through manually or through a constructor or if not set,
+the SwingEngines ClassLoader is used instead. In any case, the classloader is
+passed to the Localizer and used by the Parser and the IconImageConverter.
+
+Implemented a RectangleConverter and added to ConverterLib.,
+This has a nice side effect; it enables methods like setBounds(), i.e. for
+JInternalFrames. Therefore, a Bounds attribute is now supported for the internalframe tag.
+
+Added more sample code to smaples package, i.e. Layout sample showing some of the
+currently supported layoutmanagers in an InteralFrame.
+
+Added SWIXML LOGO PERMISSION AGREEMENT to LICENSE.txt
+
+BUG FIXES
+---------
+Parser now adds MenuBars into its parent container, even if that doesn't provide a
+setJMenuBar method.
+
+
+* * * * * * 1.0 (tag: swixml_135) from RC2 (tag: swixml_132) * * * * * *
+BUG FIXES
+---------
+Added Exceptionhandlers to prevent exceptions to show in restricted environments
+like Applets.
+Added JFrame.class to the primitive converters list of constant providers,
+provided  constants to be used with the DefaultCloseOperation attribute.
+
+* * * * * * RC2 (tag: swixml_131) from Beta6 (tag: swixml_128) * * * * * *
+New
+---
+Added HBox, VBox, and Glue tags (removed Box tag).
+Added PointConverter.
+Added MacOSX support look for new propritary attributes for info.
+Added Localization sample to demo localization and the new OSX features.
+
+* * * * * * Beta6 (tag: swixml_128) from Beta5 (tag: swixml_110) * * * * * *
+NEW
+---
+Added XGridBackContraints, providing bean-style getters and setters for all
+  public none static fields in GridBackContraints class
+Added Escape key handling for Dialogs
+Added constants that are defined in the JTabbedPane class into the PrimiveConverter
+Added additional render method to the SwingEngine class:
+  render public Container render( final File xml_file ) throws Exception
+Added a couple samples
+CHANGES:
+The SwingEngine's setActionListener(..) method now uses a backtracking algorithm,
+which registers the actionlistener rather on a child object.
+Deprecated swixml attribute use and replaced it with refid
+BUG FIXES
+---------
+Parser.getSwing() iterated passed last element in an attribute list under some
+error conditions.
+
+* * * * * * Beta5 (tag: swixml_110) from Beta4 (tag: swixml_105) * * * * * *
+NEW
+---
+Added support for the CardLayout LayoutManager:
+Example:
+<panel id="pnl" Layout="CardLayout(10,10" Border="EtchedBorder">
+  <panel Border="TitledBorder(Card 1)" constraints="c1" Background="red">
+    ..
+  </panel>
+  <panel Border="TitledBorder(Card 2)" constraints="c2" Background="blue">
+    ..
+  </panel>
+</panel>
+See is a complete sample (java and xml) in the distribution's sample package.
+
+
+Added WindowConstants.class as a constant provider for the PrimitiveConverter.
+Example:
+  <dialog
+    title="title"
+    size="542,441"
+    DefaultCloseOperation="WindowConstants.DISPOSE_ON_CLOSE">
+
+CHANGES
+-------
+Remove the implicit setting of the System Look-and-Feel. The SwingEngine does
+not tamper with the LookAndFeel anymore, if not requested through an attribute in an
+XML descriptor.
+
+
+Improved error messages displayed during parsing.
+  Error messages and exception messages are only outputted
+  if SwingEngine.DEBUG_MODE equals true
+
+BUG FIXES
+---------
+parser is not set to NULL anymore in the SwingEngine after browsing.
+This should enable the parser for re-use - if needed.
+
+* * * * * * Beta4 (tag: swixml_105) from Beta3 (tag: swixml_97) * * * * * *
+Added support for JComponent ClientProperties.
+Not applied attributes found in Swixml tags are now put into the instanced
+JComponent's ClientProperties map and can be retrieved using the JComponent's
+getClientProperty() method. (see sample code for details).
+A message is displayed in System.out, every time a ClientProperty is put.
+(but only if SwingEngine.DEBUG_MODE is true).
+
+Added the a forget(String) method to the SwingEngine,
+See Kate Rhodes, Forum(May) for details.
+
+Added localizable accelerator for menuitems.
+See Eric Lafargue Forum(May) for details.
+
+NEW TAGs
+-------
+Added "Box" tag, which instances a javax.swing.Box.class.
+This may be useful when working with a BoxLayout.
+
+CHANGES
+-------
+Improved placement / initial location of child-dialogs.
+(XDialog now overwrites show())
+
+For consistency, some method signatures and constant names have been modified
+in the SwingEngine class.
+
+BUG FIXES
+---------
+Dialog cannot overwrite the Application Frame Icon anymore.
+The dialog tag's icon attribute is only applied if an enclosing frame doesn't
+exist or doesn't have an icon.
+
+
+*
+* * * * * * Beta3 (tag: swixml_97) from Beta2 (tag: swixml_95) * * * * * *
+*
+
+Added JScrollPane.class to the PrimitiveConverter's constant dictionaries,
+allowing the use of constants like: JScrollPane.VERTICAL_SCROLLBAR_ALWAYS
+is Swiml attributes.
+
+Added custom attribute "include", which works in compliance with W3C XLink
+and XPointer specs.:
+Example:
+	<mytag include="tags.xml#xyz/>
+
+The content of the tag with the id="xyz" in the external document "tags.xml"
+gets added at run-time to mytag's content.
+
+Added ant build file build.xml
+Added ./lib/ant.jar to the distribution
+
+Swixml is built and distributed with the updated jdom-b9 (jdom_1_0_b9)
+
+BUG FIXES
+---------
+Fixed action attribute problems. The order in which attributes
+are listed is now irrelevant. SWIXML now automatically resolves action
+attributes before applying and other attribute for a tag.
+
+*
+* * * * * * Beta2 (tag: swixml_95) from Beta1 (tag: swixml_92) * * * * * *
+*
+
+NEW TAGs
+-------
+Added "Component" tag, which instances a JComponent.class.
+This may only be useful when used in combination with the initclass attribute.
+
+Added "TextPane" tag, which instances a JTextPane.class.
+
+CHANGES
+-------
+PLAF, the pluggable look and feel is now set once, in the SwingEngine's static
+initializer:
+UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
+The PLAF can also be changed for every rendering through the XML descriptor,
+deploying the plaf attribute. The change to an application specific PLAF can be
+accomplished by setting it after swixml is loaded, (the static initializer ran).
+
+Added a "Throwable cause" to some exceptions thrown in the Parser.
+
+Swixml is built and distributed with the Jason Hunter's new jdom-b9-RC1 release
+
+Since JRE 1.4.x comes with the crimson SAX XML Parser included, the crimson.jar
+was removed from the swixml distribution.
+
+
+BUG FIXES
+---------
+Fixed ButtonGroups for radiobuttonmenuitem tags in menus.
+Fixed localization for attributes that resolve into primitives.
+
+
