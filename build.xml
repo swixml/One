@@ -68,6 +68,7 @@
     <property name="jdom.jar" location="${lib.dir}/jdom.jar"/>
     <!-- Libraries used at compile time only -->
     <property name="forms.jar" location="${lib.dir}/jgoodies-forms-1.4.0.jar"/>
+    <property name="mac_ui.jar" location="${lib.dir}/ui.jar"/>    
     <!-- Libraries used for sample code only -->
     <property name="jcalendar.jar" location="${lib.dir}/jcalendar-1.3.3.jar"/>
     <property name="substance.jar" location="${lib.dir}/substance.jar"/>
