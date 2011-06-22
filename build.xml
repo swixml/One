@@ -49,7 +49,6 @@
     <property name="build.dir" location="build"/>
     <property name="build.src" location="build/src"/>
     <property name="build.dest" location="build/classes"/>
-    <property name="bundle.dest" location="build/bundle"/>
     <property name="build.javadocs" location="build/apidocs"/>
     <property name="build.tagdocs" location="build/tagdocs"/>
     <property name="build.xsd" location="build/2007"/>
@@ -134,7 +133,6 @@
     <!-- create directories -->
     <mkdir dir="${build.src}"/>
     <mkdir dir="${build.dest}"/>
-    <mkdir dir="${bundle.dest}"/>
 
     <!-- copy src files -->
     <copy todir="${build.src}" filtering="yes">
